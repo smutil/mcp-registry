@@ -1,0 +1,60 @@
+{
+  "servers": [
+    {
+      "name": "github/github-mcp-server",
+      "description": "Official GitHub MCP Server that connects AI tools directly to GitHub's platform. Enables AI agents to read repositories, manage issues and PRs, analyze code, and automate workflows through natural language interactions.",
+      "status": "active",
+      "repository": {
+        "url": "https://github.com/github/github-mcp-server",
+        "source": "github",
+        "id": "##server id would go here##",
+        "readme": "# GitHub MCP Server\n\nThe GitHub MCP Server connects AI tools directly to GitHub's platform. This gives AI agents, assistants, and chatbots the ability to read repositories and code files, manage issues and PRs, analyze code, and automate workflows. All through natural language interactions.\n"
+      },
+      "version": "0.13.0",
+      "created_at": "2025-09-23T17:41:15Z",
+      "updated_at": "2025-10-22T11:21:30Z",
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+      "remotes": [
+        {
+          "transport_type": "sse",
+          "url": "https://api.githubcopilot.com/mcp/"
+        }
+      ],
+      "_meta": {
+        "io.modelcontextprotocol.registry/official": {
+          "id": "##meta id would go here##",
+          "is_latest": true,
+          "published_at": "2025-08-22T00:00:00Z",
+          "updated_at": "2025-08-22T00:00:00Z"
+        },
+        "io.modelcontextprotocol.registry/publisher-provided": {
+          "github": {
+            "display_name": "GitHub",
+            "is_in_organization": true,
+            "license": "MIT License",
+            "name": "github-mcp-server",
+            "name_with_owner": "github/github-mcp-server",
+            "opengraph_image_url": "https://opengraph.githubassets.com/8ef88f4a4fa88fad7f1209acf6ccb6cfeb047b3597d0f8f5090a781e46bc2728/github/github-mcp-server",
+            "owner_avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "preferred_image": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "primary_language": "Go",
+            "primary_language_color": "#00ADD8",
+            "pushed_at": "2025-10-21T15:08:09Z",
+            "readme": "# GitHub MCP Server\n\nThe GitHub MCP Server connects AI tools directly to GitHub's platform. This gives AI agents, assistants, and chatbots the ability to read repositories and code files, manage issues and PRs, analyze code, and automate workflows. All through natural language interactions.\n",
+            "stargazer_count": 23800,
+            "topics": [
+              "github",
+              "mcp",
+              "mcp-server"
+            ],
+            "uses_custom_opengraph_image": false
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "count": 1,
+    "total_pages": 1
+  }
+}

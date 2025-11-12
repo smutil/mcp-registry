@@ -1,0 +1,58 @@
+name: Docker Build and Test
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t mcp-registry:test .
+
+      - name: Run Docker container
+        run: |
+          docker run -d \
+            -p 8080:8080 \
+            --name mcp-registry-test \
+            mcp-registry:test
+
+      - name: Wait for service to start
+        run: sleep 5
+
+      - name: Check health endpoint
+        run: |
+          curl -f http://localhost:8080/health || exit 1
+
+      - name: Test home page endpoint
+        run: |
+          curl -f http://localhost:8080/ || exit 1
+
+      - name: Test API endpoint
+        run: |
+          curl -f http://localhost:8080/v0/servers || exit 1
+
+      - name: Display container logs
+        if: failure()
+        run: docker logs mcp-registry-test
+
+      - name: Stop and remove container
+        if: always()
+        run: |
+          docker stop mcp-registry-test || true
+          docker rm mcp-registry-test || true
+
+      - name: Clean up Docker image
+        if: always()
+        run: docker rmi mcp-registry:test || true
